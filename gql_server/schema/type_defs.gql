@@ -1,0 +1,83 @@
+# It is gql file for server_manager
+
+
+type User{
+    userId: String!
+    password: String!
+    created_projects: [String!]
+    allowed_projects: [String!]
+}
+
+type Code{
+    projectId: String!
+    codeId: String!
+    version: String!
+    date: String!
+    content: String!
+}
+
+type Project{
+    projectId: String!
+    created_by: String!
+    allowed_user: [String!]!
+    code: [Code!]
+    curr_code: String
+}
+
+input userInput{
+    userId: String!
+    password: String!
+}
+
+input userInputForAllowAccess{
+    userId: String!
+    projectId: String!
+}
+input CreateProjectInput{
+    projectId: String!
+    created_by: String!
+    allowed_user: [String!]!
+}
+input addProjectInput{
+    userId: String!
+    project: CreateProjectInput!
+}
+input CreateCodeInput{
+    codeId: String!
+    projectId: String!
+    version: String!
+    date: String!
+    content: String!
+}
+input addNewVersionInput{
+    projectId: String!
+    code: CreateCodeInput!
+}
+input queryUserInput{
+    userId: String!
+}
+input queryProjectInput{
+    projectId: String!
+}
+type Mutation{
+    register(input: userInput!): [User!]
+    add_allowed_user(input: userInputForAllowAccess!): Project!
+    create_project(input: addProjectInput!): User!
+    add_new_version(input: addNewVersionInput!): Project!
+}
+
+type Query{
+    users: [User!]
+    login(input: userInput!): Boolean!
+    user(input: queryUserInput!): [User!]
+    view_latest_code(input: queryProjectInput!): [Project!]
+    view_version_code(input: queryProjectInput!): [Project!]        
+}
+
+# 
+
+
+
+
+
+
