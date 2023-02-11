@@ -8,8 +8,9 @@ dbConnect();
 const resolvers = {
     Query: {
         users: async () => {
+            
             const user = await Users.find();
-            return users;
+            return user;
         },
         login: async (parent, args) => {
             // console.log(args.input);
@@ -50,6 +51,7 @@ const resolvers = {
     },
     Mutation: {
         register: async (parent, args) => {
+            console.log('reg mutation called')
             const user = args.input;
             console.log(user);
             // user['allowedProjects'] = [];
