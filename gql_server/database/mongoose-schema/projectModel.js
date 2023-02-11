@@ -7,6 +7,10 @@ const projectSchema = new mongoose.Schema({
         required: [true, "Provide ProjectId"],
         unique: [true, "ProjectId  Must Be Unique"]
     },
+    projectName:{
+        type:String,
+        required:[true,"Please Provide Project Name"]
+    },
     createdBy: {
         type: String,
         required: [true, "Provide email of person who created the project"]
@@ -15,12 +19,12 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please Provide at least one allowed User"],
     }],
-    code:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Codes'
-    }],
-    currCode: {
+    content:{
         type: String
+    },
+    language: {
+        type: String,
+        required: [true,"Please Provide In Which Languaue you are creating Project"]
     }
 });
 var Projects;

@@ -31,22 +31,15 @@ const resolvers = {
             if (!user) {
                 throw new Error('User not found');
               }
-           return user;
+            // console.log(user);
+            return await Users.findOne({userId:args.input.userId}).populate('createdProjects').populate('allowedProjects');
         },
-        view_latest_code: async(parent,args)=>{
-            const projects = await Projects.findOne({projectId: args.input.projectId});
-            if(!projects){
+        project: async(parent,args)=>{
+            const project = await Projects.findOne({projectId: args.input.projectId});
+            if(!project){
                 throw new Error('Project Not Found');
             }
-            return await Codes.findOne({CodeId: projects.currCode});
-        }
-        ,
-        view_version_code: async(parent,args)=>{
-            const projects = await Projects.findOne({projectId: args.input.projectId});
-            if(!projects){
-                throw new Error('Project Not Found');
-            }
-            return projects;
+            return project;
         }
     },
     Mutation: {
@@ -133,31 +126,6 @@ const resolvers = {
           
 
             return await Users.findOne({userId:userId}).populate('createdProjects').populate('allowedProjects');
-        },
-        add_new_version: async(parent,args)=>{
-            const projectId = args.input.projectId;
-            const code = args.input.code;
-            const project = await Projects.findOne({projectId:projectId});
-            if(!project){
-                throw new Error(`Project with id ${projectId} not found`);
-            }
-            const newCode = new Codes(code);
-
-            await newCode.save().catch((err)=>{
-                console.log("Code Not Saved ");
-                console.log(err);
-            })
-            // if(project.code.indexOf(code)===-1){
-                project.code.push(newCode);
-            // };
-            await project.save().catch((err) => {
-                console.log("Data Not Saved and New Post Not Created");
-                console.log(err);
-            });;
-           
-           
-            return await Projects.findOne({projectId:projectId}).populate('code');
-
         }
        
     },

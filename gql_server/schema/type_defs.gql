@@ -9,20 +9,13 @@ type User{
     allowedProjects: [Project!]
 }
 
-type Code{
-    projectId: String!
-    codeId: String!
-    version: String!
-    date: String!
-    content: String!
-}
-
 type Project{
     projectId: String!
+    projectName: String!
     createdBy: String
     allowedUsers: [String!]
-    code: [Code!]
-    currCode: String
+    content: String
+    language: String!
 }
 
 input userRegisterInput{
@@ -41,24 +34,27 @@ input userInputForAllowAccess{
 }
 input CreateProjectInput{
     projectId: String!
+    projectName: String!
     createdBy: String!
     allowedUsers: [String!]!
+    content: String
+    language: String!
 }
 input addProjectInput{
     userId: String!
     project: CreateProjectInput!
 }
-input CreateCodeInput{
-    codeId: String!
-    projectId: String!
-    version: String!
-    date: String!
-    content: String!
-}
-input addNewVersionInput{
-    projectId: String!
-    code: CreateCodeInput!
-}
+# input CreateCodeInput{
+#     codeId: String!
+#     projectId: String!
+#     version: String!
+#     date: String!
+#     content: String!
+# }
+# input addNewVersionInput{
+#     projectId: String!
+#     code: CreateCodeInput!
+# }
 input queryUserInput{
     userId: String!
 }
@@ -69,15 +65,13 @@ type Mutation{
     register(input: userRegisterInput!): User!
     add_allowed_user(input: userInputForAllowAccess!): Project!
     create_project(input: addProjectInput!): User!
-    add_new_version(input: addNewVersionInput!): Project!
 }
 
 type Query{
     users: [User!]
     login(input: userLoginInput!): Boolean!
     user(input: queryUserInput!): User!
-    view_latest_code(input: queryProjectInput!): Code!
-    view_version_code(input: queryProjectInput!): Project!        
+    project(input: queryProjectInput!): Project!     
 }
 
 # 
