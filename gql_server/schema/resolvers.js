@@ -125,6 +125,18 @@ const resolvers = {
           
 
             return await Users.findOne({userId:userId}).populate('createdProjects').populate('allowedProjects');
+        },
+        save_code: async(parent,args)=>{
+            const projectId = args.input.projectId;
+            const new_content = args.input.content;
+            const project = await Projects.findOne({projectId: projectId});
+            if (!project) {
+                throw new Error(`Project with id ${projectId} not found`);
+            }
+            const result = await Projects.updateOne({projectId:projectId},{$set : {content: new_content}});
+
+            return await Projects.findOne({projectId:projectId});
+
         }
        
     },
