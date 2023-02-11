@@ -76,8 +76,8 @@ type Query{
     users: [User!]
     login(input: userLoginInput!): Boolean!
     user(input: queryUserInput!): User!
-    view_latest_code(input: queryProjectInput!): [Project!]
-    view_version_code(input: queryProjectInput!): [Project!]        
+    view_latest_code(input: queryProjectInput!): Code!
+    view_version_code(input: queryProjectInput!): Project!        
 }
 
 # 
