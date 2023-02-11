@@ -1,10 +1,11 @@
 {
-  "name": "gql_server",
+  "name": "gql_server-_user_auth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.3.0",
@@ -12,6 +13,7 @@
     "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "mongoose": "^6.8.3",
+    "nodemon": "^2.0.20",
     "uuid": "^9.0.0"
   },
   "type": "module",

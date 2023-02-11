@@ -3,9 +3,10 @@
 
 type User{
     userId: String!
+    userName: String!
     password: String!
-    created_projects: [String!]
-    allowed_projects: [String!]
+    createdProjects: [Project!]
+    allowedProjects: [Project!]
 }
 
 type Code{
@@ -18,13 +19,18 @@ type Code{
 
 type Project{
     projectId: String!
-    created_by: String!
-    allowed_user: [String!]!
+    createdBy: String
+    allowedUsers: [String!]
     code: [Code!]
-    curr_code: String
+    currCode: String
 }
 
-input userInput{
+input userRegisterInput{
+    userId: String!
+    userName: String!
+    password: String!
+}
+input userLoginInput{
     userId: String!
     password: String!
 }
@@ -35,8 +41,8 @@ input userInputForAllowAccess{
 }
 input CreateProjectInput{
     projectId: String!
-    created_by: String!
-    allowed_user: [String!]!
+    createdBy: String!
+    allowedUsers: [String!]!
 }
 input addProjectInput{
     userId: String!
@@ -60,7 +66,7 @@ input queryProjectInput{
     projectId: String!
 }
 type Mutation{
-    register(input: userInput!): [User!]
+    register(input: userRegisterInput!): User!
     add_allowed_user(input: userInputForAllowAccess!): Project!
     create_project(input: addProjectInput!): User!
     add_new_version(input: addNewVersionInput!): Project!
@@ -68,8 +74,8 @@ type Mutation{
 
 type Query{
     users: [User!]
-    login(input: userInput!): Boolean!
-    user(input: queryUserInput!): [User!]
+    login(input: userLoginInput!): Boolean!
+    user(input: queryUserInput!): User!
     view_latest_code(input: queryProjectInput!): [Project!]
     view_version_code(input: queryProjectInput!): [Project!]        
 }

@@ -14,7 +14,6 @@ const projectSchema = new mongoose.Schema({
     allowedUsers: [{
         type: String,
         required: [true, "Please Provide at least one allowed User"],
-        unique: [true, "User Already has Access To That Project"]
     }],
     code:[{
         type: mongoose.Schema.Types.ObjectId,

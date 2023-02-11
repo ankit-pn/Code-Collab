@@ -5,17 +5,23 @@ const userSchema = new mongoose.Schema({
         required: [true, "Provide UserId"],
         unique: [true, "UserId Must Be Unique"]
     },
+    userName:{
+        type: String,
+        required: [true,"Provide UserName"]
+    },
     password: {
         type: String,
         required: [true, 'Please Provide Password'],
     },
     createdProjects: [{
-        type: String,
-        unique: [true,'Created Project has  to be unique']
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Projects'
+        // unique: [true,'Created Project has  to be unique']
     }],
     allowedProjects: [{
-        type: String,
-        unique: [true, 'Allowed Project has to be unique']
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Projects'
+        // unique: [true, 'Allowed Project has to be unique']
     }
     ]
 });
