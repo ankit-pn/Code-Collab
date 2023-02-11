@@ -9,7 +9,7 @@ const resolvers = {
     Query: {
         users: async () => {
             const user = await Users.find();
-            return users;
+            return user;
         },
         login: async (parent, args) => {
             // console.log(args.input);
