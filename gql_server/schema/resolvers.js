@@ -1,7 +1,6 @@
 import { dbConnect } from "../database/dbConnect.js";
 import {Users} from "../database/mongoose-schema/userModel.js"
 import {Projects} from "../database/mongoose-schema/projectModel.js";
-import {Codes} from "../database/mongoose-schema/codeModel.js";
 import { v4 as uuidv4 } from "uuid";
 import { userInfo } from "os";
 dbConnect();
@@ -11,20 +10,6 @@ const resolvers = {
             
             const user = await Users.find();
             return user;
-        },
-        login: async (parent, args) => {
-            // console.log(args.input);
-            const user = await Users.findOne({ userId: args.input.userId });
-            // console.log(args.userId);
-            if (!user) {
-                throw new Error('User not found');
-              }
-            if(user.password === args.input.password){
-                return 1;
-            }
-            else{
-                return 0;
-            }
         },
         user: async(parent, args)=>{
             const user = await Users.findOne({ userId: args.input.userId });
@@ -43,6 +28,20 @@ const resolvers = {
         }
     },
     Mutation: {
+        login: async (parent, args) => {
+            // console.log(args.input);
+            const user = await Users.findOne({ userId: args.input.userId });
+            // console.log(args.userId);
+            if (!user) {
+                throw new Error('User not found');
+              }
+            if(user.password === args.input.password){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        },
         register: async (parent, args) => {
             console.log('reg mutation called')
             const user = args.input;

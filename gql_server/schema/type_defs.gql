@@ -62,6 +62,7 @@ input queryProjectInput{
     projectId: String!
 }
 type Mutation{
+    login(input: userLoginInput!): Boolean!
     register(input: userRegisterInput!): User!
     add_allowed_user(input: userInputForAllowAccess!): Project!
     create_project(input: addProjectInput!): User!
@@ -69,7 +70,6 @@ type Mutation{
 
 type Query{
     users: [User!]
-    login(input: userLoginInput!): Boolean!
     user(input: queryUserInput!): User!
     project(input: queryProjectInput!): Project!     
 }
