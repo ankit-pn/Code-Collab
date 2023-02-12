@@ -15,13 +15,11 @@ const userSchema = new mongoose.Schema({
     },
     createdProjects: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Projects',
-        unique: [true,'Created Project has  to be unique']
+        ref: 'Projects'
     }],
     allowedProjects: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Projects',
-        unique: [true, 'Allowed Project has to be unique']
+        ref: 'Projects'
     }
     ]
 });
