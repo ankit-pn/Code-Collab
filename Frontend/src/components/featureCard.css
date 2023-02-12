@@ -1,0 +1,8 @@
+.Card{
+    box-shadow: 0 4px 8px hsl(223, 83%, 69%);
+    background-color:hsl(220, 100%, 12%);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 18px;
+    
+}

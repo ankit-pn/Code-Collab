@@ -1,0 +1,22 @@
+.onsc{
+    background-color: 'hsl(230,25%,12%)';
+    color:white;
+    min-height: 90vh;
+}
+
+.def-h1{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: -20px;
+    margin-left: 310px;
+    font-size: 40px;
+    font-weight: 500;
+    color: aliceblue;
+    
+    
+}
+
+.plusbtn{
+    margin-top: 200px;
+    margin-left: 550px;
+     
+}

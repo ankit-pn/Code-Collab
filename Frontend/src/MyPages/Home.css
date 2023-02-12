@@ -1,0 +1,75 @@
+.navbar{
+    position: sticky;
+    top : 0;
+    margin: 0;
+}
+
+.cont{
+    margin: 0px 0px;
+    display: flex;
+    margin-bottom: 24px;
+    
+}
+
+.cont1{
+    max-width: 40%;
+    display: inline-block;
+    margin-top: 64px;
+}
+
+.cont2{
+    display: inline-block;
+    min-width: 60%;
+    margin-top: 64px;
+
+}
+
+.hm-btn{
+    color: hsl(214, 4%, 82%);
+    background-color: transparent;
+    font-size: 18px;
+    margin-top: -80px;
+    box-shadow: 4px 5px hsl(200,80%, 35%);
+
+}
+
+.hm-btn:hover{
+    color: white;
+    box-shadow: 4px 5px hsl(200,80%, 55%);
+}
+
+
+.heroGif{
+    max-width: 90%;
+    margin: auto;
+    padding-top: 36px;
+}
+
+.title{
+    font-size : 96px;
+    /* max-width : 80%; */
+    color :  	hsl(236, 30%, 43%);
+}
+
+.slogan{
+    color:  hsl(226, 34%, 72%);
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+.pbtn{
+    background-color: hsl(203,80%, 22%);
+    padding: 12px;
+    font-size: 32px;
+    border: 40px;
+    box-shadow: 4px 5px hsl(200,80%, 35%);
+    color: rgba(255,255,255,0.8);
+    margin-left: 25%;
+    margin-top: 30px;
+    
+}
+
+.pbtn:hover{
+    color: black;
+    background-color: hsl(236, 70%, 83%);
+}

@@ -1,0 +1,18 @@
+.controls {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #0a0909;
+    width: 12rem;
+    max-width: 100%;
+    margin-left: 50%;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+    background-color: rgb(67, 139, 222);
+  }
+
+.btn{
+    text-align: center;
+    margin-top: 8px;
+  
+}
