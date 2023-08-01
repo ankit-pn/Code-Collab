@@ -45,4 +45,4 @@ Code Collab is a real-time code collaboration platform for developers. It allows
 * [Ankit Kumar](https://github.com/ankit-pn)
 * [Mayur Sonkusare](https://github.com/mayur-ud)
 
-Try it Now [Code Collab](https://code-editor-frontend-pae.vercel.app/)
+Try it Now [Code Collab](https://code-kolab.vercel.app/)
